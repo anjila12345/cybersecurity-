@@ -1,0 +1,154 @@
+/* WordFindGame.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffbb00, #f6c700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.word-find-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ul li {
+  font-size: 18px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #ffcc00;
+  color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+ul li:hover {
+  background-color: #ffd700;
+}
+
+ul li.discovered {
+  background-color: #e5a200;
+}
+
+.word-definition {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.score {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.board-container {
+  margin-top: 20px;
+}
+
+.letter-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.letter {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+.letter:hover {
+  background-color: #f0f0f0;
+}
+
+.letter.selected {
+  background-color: #ffd700;
+  color: #333;
+}
+
+.selected-letters {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.selected-letters h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.selected-letters p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.selected-letters button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #e5a200;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.selected-letters button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.definition-box {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffd700;
+  color: #333;
+  border-radius: 10px;
+}
+
+.definition-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.definition-box p {
+  font-size: 18px;
+}
+
+.discovered {
+  text-decoration: line-through;
+  color: #888;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Header from '../component/header2';
 
 const QuizApp = () => {
   
@@ -93,26 +94,34 @@ const QuizApp = () => {
       console.error('Error saving score:', error);
     }
   };
-  return (
-    <div>
 
+  return (
+   
+    <div>
+<Header/>
     <div className="quiz-container">
       {showScore ? (
         <div className="score-section">
            <img src="../img/cons.png" alt="" class="imgcons"/>
+          
            <h1 className='score'>{score}</h1>
+           <div className="scorebox"> 
           <h2>Your Score: {score} out of {questions.length}</h2>
-          <button onClick={restartQuiz}>Restart Quiz</button>
-          <button onClick={saveScore}>Save Score</button>
+
+          <button class="restart" onClick={restartQuiz}>Restart Quiz</button>
+          <button class="savescore"onClick={saveScore}>Save Score</button>
+          </div>
         </div>
       ) : (
         <div className="question-section">
          
              <img src="../img/pp.png" alt="" class="imgquiz"/>
+            
           <div className="question">
           <h2>Question {currentQuestion + 1}</h2>
           <p>{questions[currentQuestion].question}</p>
           </div>
+          <img src="../img/qq.png" alt="" class="imgqq"/>
           <div className="answer-options">
             {questions[currentQuestion].options.map((option, index) => (
               <button key={index} onClick={() => handleAnswerClick(option)}>

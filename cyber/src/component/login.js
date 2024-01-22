@@ -12,7 +12,7 @@ class Login extends React.Component {
             password: '',
             role: '',
             isLoggedIn: false,
-            emailerror: '',
+           usernameerror: '',
             passworderror: ''
         }
     }
@@ -66,13 +66,11 @@ class Login extends React.Component {
     render() {
         // alert(localStorage.getItem('user_type'))
         if (this.state.isLoggedIn === true && localStorage.getItem('role') == "User") {
-            return <Redirect to='/bully' />
+            return <Redirect to='/index' />
         } if (this.state.isLoggedIn === true && localStorage.getItem('role') == "Admin") {
             return <Redirect to='/AdminDashboard' />
         }
-        if (this.state.isLoggedIn === true && localStorage.getItem('role') == "Agent") {
-            return <Redirect to='/postjob' />
-        }
+      
         return (
             <div class="login">
                 <div className="login-box">

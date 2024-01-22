@@ -8,10 +8,8 @@ const UserController = require('../controller/usercontroller')
 
 router.post("/register", UserController.adduser)
 router.post("/login", UserController.login)
-
-
 router.get("/logincheck", auth, UserController.logincheck)
-router.post("/userlogout", auth, UserController.logout)
+router.post("/logout", auth, UserController.logout)
 
 router.get("/finduser", UserController.finduser)
 

@@ -1,16 +1,13 @@
 const express = require('express')
 const app = express();
 require('./database/mongoose')
-
-
 const user2Router = require('./router/users');
 const  gameboard= require('./router/game');
-
-
 const path = require("path");
 const bodyParser = require('body-parser');
 const publicdirectory = path.join(__dirname, 'public');
 const cors = require('cors');
+const auth =require('./middleware/auth1')
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }))

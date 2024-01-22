@@ -1,10 +1,58 @@
 import React from 'react'
+import axios from 'axios'
+import { Redirect } from 'react-router-dom';
 
 
 class Bully extends React.Component{
-
-    render() {
-
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+          id: "",
+          fname: '',
+          lname: '',
+          number: '',
+          dob: '',
+          gender: '',
+          email: '',
+          password: '',
+          user: '',
+          image: '',
+          imagePreviewUrl: '',
+          config: {
+            headers: {
+              'content-type': 'multipart/form-data',
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+          }
+        }
+      }
+    
+    
+    
+    
+      componentDidMount() {
+        axios.get('http://localhost:3000/logincheck', this.state.config)
+          .then((response) => {
+            //S alert(response.data.fname)
+            this.setState({
+              user: response.data,
+              id: response.data._id,
+              fname: response.data.fname,
+              lname: response.data.lname,
+              number: response.data.number,
+              dob: response.data.dob,
+              gender: response.data.gender,
+              email: response.data.email,
+              password: response.data.password
+            })
+    
+          })
+    
+      }
+    
+      render() {
+                   
         return (
 <div id="course" class="our-team-area area-padding">
                         <div class="container1">

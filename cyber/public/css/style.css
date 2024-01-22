@@ -1020,6 +1020,7 @@ border: transparent;
   width:auto;
   height: auto;
   margin-left: 250px;;
+  margin-top: 100px;
   margin-right: 250px;
 
   border: 1px solid #111;
@@ -1109,7 +1110,14 @@ height:400px;
   position: absolute;
 height:400px;
   left: 10px;
-  margin-top: 80px;
+  margin-top: 95px;
+  z-index: -55;
+}
+.imgqq {
+  position: absolute;
+height:400px;
+right:-20px;
+margin-top: -120px;
   z-index: -55;
 }
 .imghome{
@@ -1120,9 +1128,39 @@ height:400px;
 .imgcons{
 width:900px;
 margin-left: 200px;
+margin-bottom: 150px;;
 
 }
 .score{
   text-align: center;
+  margin-top: -375px;
+  margin-right:20px;
+  color: #111;
+  font-weight: 400;
+
+}
+.scorebox{
+margin-left: 500px;
+margin-top: 200px;
+
+}
+.restart{
+  background-color: #f1bd20;
+  margin-right: 70px;;
+  height: 40px;
+  border: transparent;
+}
+.savescore{
+  height: 40px;
+  background-color: #f1bd20;
+  height: 40px;
+  border: transparent;
   
+}
+
+ .savescore:hover{
+  background-color: #337ab7;
+}
+.restart:hover{
+  background-color: #337ab7;
 }

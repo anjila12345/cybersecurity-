@@ -1,15 +1,17 @@
 import React from 'react'
-import Header from '../component/header';
+
 import Footer from '../component/footer';
 
 class Service extends React.Component{
+    
+  
 
     render() {
 
         return (
 
             <div>
-                <Header/>
+              
                 <div id="team" class="our-team-area area-padding">
                         <div class="container">
                             <div class="row">

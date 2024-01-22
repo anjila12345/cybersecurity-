@@ -2,11 +2,12 @@ import React from 'react'
 
 
 class Course extends React.Component{
-
-    render() {
-
+    
+    
+      render() {
+                               
         return (
-<div id="team" class="our-team-area area-padding">
+                   <div id="team" class="our-team-area area-padding">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">

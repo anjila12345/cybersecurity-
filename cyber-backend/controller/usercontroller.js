@@ -40,18 +40,17 @@ exports.login = async (req, res) => {
 exports.logincheck = async (req, res) => {
     res.send(req.user)
     console.log(req.user)
-    console.log('logged In')
+   
 }
 
 
+
 exports.finduser = async (req, res) => {
-    try {
-        const findAlluser = await Users.find();
-        res.status(200).json(findAlluser);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal Server Error');
-    }
+  Users.find().then(function (findalluser){
+    res.send(findalluser).catch(function (e){
+        res.send(e)
+    })
+  })
 };
 
 exports.profile = (req, res) => {

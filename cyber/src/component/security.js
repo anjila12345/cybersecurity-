@@ -1,11 +1,43 @@
 import React from 'react'
-import Header from '../component/header';
+import Header from '../component/header2';
 import Footer from '../component/footer';
+import axios from 'axios'
+import { Redirect } from 'react-router-dom';
 
 class Security extends React.Component{
+    constructor(props) {
+        super(props)
+        this.state = {
+          isLoggedIn: false
+        }
+        this.state = {
+            user:{},
+            id:"",
+           
+            comment:"",
+              config: {
+                  headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+              }
+          }
+      }
 
-    render() {
+    componentDidMount() {
+        axios.get('http://localhost:3000/logincheck', this.state.config)
+            .then((response) => {
+                this.setState({
+                    id:response.data._id,
+                    isLoggedIn: true,
+                    user:response.data
+                    }) 
+            });
+      
+    }
 
+    render(){
+        if (this.state.isLoggedIn === false) {
+            return <Redirect to='/index' />
+          }
+       
         return (
             <div>  <Header/>
 <div id="team" class="our-team-area area-padding">
