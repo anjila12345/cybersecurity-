@@ -13,20 +13,78 @@ class Signuppage extends React.Component {
             'password': '',
             'role': '',
             Redirect: false,
+            firstnameerror: '',
+            lastnameerror: '',
+           usernameerror: '',
+      
+            emailerror: '',
+            passworderror: '',
+      
 
 
         }
     }
+    setError = () => {
+        let isError = false;
+        const errors = {
+            firstnameerror: '',
+            lastnameerror: '',
+           usernameerror: '',
+      
+            emailerror: '',
+            passworderror: '',
+        };
+        if (this.state.firstname === '') {
+          isError = true;
+          errors.firstnameerror = "Please enter firstname";
+        }
+    
+        if (this.state.lastname === '') {
+    
+          isError = true;
+          errors.lastnameerror = "Please enter lastname";
+        }
+    
+        
+        
+        if (this.state.username === '') {
+          isError = true;
+          errors.usernameerror = "Please provide username";
+        }
+    
+        const emailPattern = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
+        if (!emailPattern.test(this.state.email)) {
+          isError = true;
+          errors.emailerror = "Enter valid Email Address";
+        }
+        if (this.state.password.length < 8) {
+          isError = true;
+          errors.passworderror = "Password must be atleast 8 character";
+        }
+        this.setState({
+          ...this.state,
+          ...errors
+        })
+    
+        return isError;
+      }
 
     sendUser = (e) => {
         e.preventDefault();
-
+        const err = this.setError();
+        if (!err) {
         const data = {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
             username: this.state.username,
             email: this.state.email,
             password: this.state.password,
+            firstnameerror: '',
+            lastnameerror: '',
+           usernameerror: '',      
+            emailerror: '',
+            passworderror: '',
+
         }
         axios.post('http://localhost:3000/register', data).then(() => {
 
@@ -39,7 +97,7 @@ class Signuppage extends React.Component {
         })
 
 
-
+    }
     }
 
     handleRedirect() {
@@ -65,7 +123,7 @@ class Signuppage extends React.Component {
                                 <input className="form-control input" type="text" id="firstname" value={this.state.firstname} onChange={(event) =>
                                     this.setState({ firstname: event.target.value })} placeholder="First name" required />
                                 <error className="errormsg">
-                                    {this.state.fnameerror}
+                                    {this.state.firstnameerror}
                                 </error>
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
@@ -74,7 +132,7 @@ class Signuppage extends React.Component {
                                 <input className="form-control input" type="text" id="lastname" value={this.state.lastname} onChange={(event) =>
                                     this.setState({ lastname: event.target.value })} placeholder="Last name" required />
                                 <error className="errormsg">
-                                    {this.state.lnameerror}
+                                    {this.state.lastnameerror}
                                 </error>
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
@@ -94,7 +152,7 @@ class Signuppage extends React.Component {
                                 <input className="form-control input" type="text" id="username" value={this.state.username} onChange={(event) =>
                                     this.setState({ username: event.target.value })} placeholder="Username" required />
                                 <error className="errormsg">
-                                    {this.state.numbererror}
+                                    {this.state.usernameerror}
                                 </error>
                                 <span class="glyphicon glyphicon-phone form-control-feedback"></span>
 

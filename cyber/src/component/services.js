@@ -28,7 +28,7 @@ class Service extends React.Component{
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <div class="single-team-member">
                                         <div class="team-img">
-                                            <a href="#">
+                                            <a href="game">
                                                 <img src="../img/puzzle.png" alt="" id="teamimg" />
                                             </a>
                                            

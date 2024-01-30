@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter} from 'react-router-dom';
-
+import PrivateRoute from './component/PrivateRouter';
 
 import Home1 from './container/home';
 import Home2 from './container/home2';
@@ -17,9 +17,12 @@ import Services from './container/services';
 
 import Admin from './container/Admin/signup';
 import Userdetails from './container/Admin/userdetails';
-
+import leader from './container/leaderboard';
+import Editprofile from './container/Editprofile'
 
 import Game from './container/game';
+
+import Scoredetails from './container/Admin/score';
 class Router extends Component {
     render() {
         
@@ -31,19 +34,21 @@ class Router extends Component {
                    
                     <Route exact path="/login" component={Loginpage} />
                     <Route exact path="/register" component={Signup} />
-                    <Route exact path="/course" component={Course1} />
-                    <Route exact path="/bully" component={Bully1} />
-                    <Route exact path="/security" component={Security} />\
+                    <PrivateRoute exact path="/course" component={Course1} />
+                    <PrivateRoute exact path="/bully" component={Bully1} />
+                    <PrivateRoute exact path="/security" component={Security} />\
                     <Route exact path="/quiz" component={Quiz1} />
                     <Route exact path="/services" component={Service} />\
                     
                     <Route exact path="/service" component={Services} />\
-                    <Route exact path="/quiz1" component={QuizApp} />\
+                    <PrivateRoute exact path="/quiz1" component={QuizApp} />\
 
-                    <Route exact path="/addadmin" component={Admin} />
-                    <Route exact path="/userdetails" component={Userdetails} />
-
-
+                    <PrivateRoute exact path="/addadmin" component={Admin} />\
+                    <PrivateRoute exact path="/userdetails" component={Userdetails} />\
+                    <PrivateRoute exact path="/leader" component={leader} />
+                    <PrivateRoute exact path="/scoredetails" component={Scoredetails} />
+                  
+                    <PrivateRoute exact path="/Editprofile" component={Editprofile} />
                     
                     <Route exact path="/game" component={Game} />\
                 </Switch>

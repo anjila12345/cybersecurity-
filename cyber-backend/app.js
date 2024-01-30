@@ -7,7 +7,7 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const publicdirectory = path.join(__dirname, 'public');
 const cors = require('cors');
-const auth =require('./middleware/auth1')
+const auth =require('./middleware/auth')
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }))

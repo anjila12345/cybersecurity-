@@ -666,9 +666,9 @@ ul {
 .sidebar{
     position: absolute;
     width:250px;
-    background:#fff;
+    background:#4b4848;
     margin-bottom: 20px;
-    border: 1px solid #eee;
+    border: 1px solid #095866;
     min-height: calc(100vh - 80px - 72px);
 
 }
@@ -676,7 +676,7 @@ ul {
     padding-bottom: 15px;
 }
 .side-header{
-    border-bottom: 1px solid blue;    
+    border-bottom: 1px solid rgb(230, 230, 240);    
     display:flex;
     margin-top:20px;
     
@@ -685,6 +685,7 @@ ul {
 .side-title{  
     margin-left:20px; 
     font-size: 16px;
+    color: #fff;
 }
 
 .side-header .img #navimg{
@@ -697,13 +698,20 @@ ul {
 .menu {
     margin-left: 20px;
     margin-top: 20px;
-    color: blue;
+    color: rgb(235, 235, 247);
 }
 .nav-stacked>li>a {
     border-radius: 0;
     border-top: 0;
     border-left: 3px solid transparent;
-    color: #444;
+    color: #fff;
+}
+.nav-stacked>li>a:hover {
+  border-radius: 0;
+  border-top: 0;
+  border-left: 3px solid transparent;
+  color: #337ab7;
+  background-color: #fff;
 }
 #img1 {
     float: right;
@@ -1163,4 +1171,153 @@ margin-top: 200px;
 }
 .restart:hover{
   background-color: #337ab7;
+}
+
+
+/* quiz header */
+.quiznav{
+  text-align: center;
+  margin-left: 250px;;
+
+}
+.quizicon{
+  color:#fff;
+  font-size: xx-large;
+
+}
+ .navbar-custom{  
+  font-size:10px; 
+  text-align: center; 
+ 
+}
+
+ 
+
+
+.navbar-custom a{
+  color:#fff;
+  padding-left:70px;
+  cursor: pointer;
+  display: inline-block;  
+  position: relative;
+  transition: all 0.3s ease; 
+  margin-right: 10px;  
+  
+}
+.navbar-custom a :hover{
+   
+ color:rgb(230, 171, 10);    
+  
+}
+ .navbar-custom a .title{
+  display: block;
+  width: 150px;
+  text-align: center;
+  bottom:-20px;
+  left:45px; 
+  color: white;
+  background-color: rgb(224, 164, 52);
+  border-radius: 8px;     
+  font-size: 20px;   
+  position: absolute;   
+  display:none;
+}
+ .navbar-custom a .title:before{
+  content:'';
+  width:10px;
+  height:10px;
+  position: absolute;
+  top:-5px;
+  background: rgb(224, 164, 52);
+  z-index:-1;
+  left: 30px;
+  transform:translateX(-50% ) rotate(45deg)
+
+}
+ .navbar-custom a:hover .title{
+  display: block;  
+  
+}
+.titleuser{
+  font-size: 20px;
+  float:right;
+  text-align: center;
+  margin-top: 8px;
+  margin-left: 3px;
+}
+
+
+/* leaderboARD*/
+
+.quizboard{
+  height:400%;   
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  
+ 
+}
+
+.example3{
+  width:50%;
+margin-top: 5px;;
+  margin-left: 350px;
+  position: relative;
+  background:  linear-gradient(to right, #fff,#fff,#ffbd59);
+}
+table #thead .boardtable {
+  padding: 10px;
+  color:  #0a4462;;
+  background-color: transparent;
+}
+.table tbody tr .tablebb {
+  padding: 10px;
+border: transparent;
+}
+.imgqquiz{
+  margin-top: 90px;
+  margin-left: 235px;
+  width: 650px;
+
+}
+
+.badge-image{
+  height:50px
+}
+.imgts{
+  position: absolute;
+  height: 350px;
+  right: -240px;
+  margin-top: -350px;
+  z-index: -55;
+}
+.imgtt{
+  position: absolute;
+  height: 400px;
+  left: 10px;
+  margin-top: 10px;
+  z-index: -55;
+}
+
+
+
+.editpage2{
+  margin-right: 500px;
+  margin-top: 50px;;
+}
+.register-box-body1 {
+  background: #fff;
+  width: 500px;
+  padding: 55px 55px 37px 55px;
+  overflow: hidden;
+  border-radius: 20px;
+  border-top: 0;
+  color: #666;
+  margin-top: 10px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin-bottom: 80px;
+  margin-right: 200px;
 }

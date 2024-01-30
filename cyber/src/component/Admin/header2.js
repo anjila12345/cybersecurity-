@@ -5,37 +5,34 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isLoggedIn: false
+          isLoggedIn: false
         }
         this.state = {
-            id: '',
-            singleFeed: {},
-            post_status: '',
-            profileimage: '',
-            name: '',
-            post: [],
-            user: {},
-            config: {
-                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-            }
+          id: '',
+         
+          profileimage: '',
+          name: '',
+          post: [],
+          user: {},
+          config: {
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+          }
         }
-    }
-
-    componentDidMount() {
+      }
+    
+      componentDidMount() {
         axios.get('http://localhost:3000/logincheck', this.state.config)
-            .then((response) => {
-                this.setState({
-                    isLoggedIn: true,
-                    user: response.data
-                })
-            });
-
-
-    }
-    LogOut = () => {
-        axios.post('http://localhost:3000/agent/logout')
+          .then((response) => {
+            this.setState({
+              isLoggedIn: true,
+              user: response.data
+            })
+          });
+      }
+      LogOut = () => {
+        axios.post('http://localhost:3000/logout')
         localStorage.removeItem('token')
-    }
+      }
 
     render() {
 
@@ -50,7 +47,7 @@ class Header extends React.Component {
                     <nav class="navbar navbar-static-top">
 
                         <div className="img1">
-                            <img src={"" + this.state.user.image} id="img1" className="img-circle" alt="avatar" />
+                            <img src={"http://localhost:3000/image/" + this.state.user.image} id="img1" className="img-circle" alt="avatar" />
                         </div>
                     </nav>
 

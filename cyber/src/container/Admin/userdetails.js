@@ -52,7 +52,7 @@ class UserDetails extends React.Component {
                     </section>
 
                 </div>
-           
+       
             </div>
         )
 

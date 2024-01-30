@@ -125,7 +125,7 @@ class Signuppage extends React.Component {
                 <div className="content-wrapper1">
                     <div className="register-box">
 
-                        <div className="register-box-body">
+                        <div className="register-box-body1">
                             <form>
                                 <h2 className="login-box-msg"> <b>Create admin profile </b></h2>
                                 <div className="form-group has-feedback">

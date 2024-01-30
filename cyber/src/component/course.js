@@ -1,11 +1,45 @@
 import React from 'react'
+import axios from 'axios'
+import { Redirect } from 'react-router-dom';
 
 
 class Course extends React.Component{
     
-    
-      render() {
-                               
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoggedIn: false
+        }
+        this.state = {
+            user: {},
+            id: "",
+            posts: [],
+            comment: "",
+            config: {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            }
+        }
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:3000/logincheck', this.state.config)
+            .then((response) => {
+                this.setState({
+                    id: response.data._id,
+                    isLoggedIn: true,
+                    user: response.data
+                });
+            })
+            .catch((error) => {
+                console.error('Error checking login status:', error);
+                // Handle error or redirect to login page
+            });
+    }
+    render() {
+        if (this.state.isLoggedIn === false) {
+            return <Redirect to='/login' />
+        }
+                   
         return (
                    <div id="team" class="our-team-area area-padding">
                         <div class="container">

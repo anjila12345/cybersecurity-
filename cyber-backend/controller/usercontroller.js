@@ -9,9 +9,10 @@ exports.adduser = (req, res) => {
     }).catch(function (e) {
         res.send(e)
     })
-} 
+}
 
-//function for Login Function
+
+
 exports.login = async (req, res) => {
     try {
         const user = await Users.checkCrediantialsDb(req.body.username,
@@ -40,18 +41,17 @@ exports.login = async (req, res) => {
 exports.logincheck = async (req, res) => {
     res.send(req.user)
     console.log(req.user)
-   
 }
 
-
-
+// //get ko lagi code
 exports.finduser = async (req, res) => {
-  Users.find().then(function (findalluser){
-    res.send(findalluser).catch(function (e){
-        res.send(e)
-    })
-  })
-};
+    try {
+        const findAlluser = await Users.find();
+        res.send(findAlluser);
+    } catch (e) {
+        res.status(500).send(e);
+    }
+}
 
 exports.profile = (req, res) => {
     Users.findById(req.params._id
@@ -60,25 +60,16 @@ exports.profile = (req, res) => {
     })
 }
 
-//yaha bata taltira delete ko 
 
-exports.delete = async (req, res) => {
-    try {
-        const deletedUser = await Users.findByIdAndDelete(req.params.id);
+exports.delete = function (req, res) {
+    Users.findByIdAndDelete(req.params.id).then(function () {
 
-        if (!deletedUser) {
-            // If the user with the given ID is not found, send a 404 Not Found response
-            return res.status(404).json({ message: 'User not found' });
-        }
-
-        // If the user is successfully deleted, send a 204 No Content response
-        res.status(204).send();
-    } catch (error) {
-        console.error(error);
-        // Handle other errors with a 500 Internal Server Error response
-        res.status(500).send('Internal Server Error');
-    }
+    }).catch(function () {
+        res.send(e)
+    })
 };
+
+
 exports.update = function (req, res) {
     console.log(req.body)
     Users.findByIdAndUpdate(req.params.id, req.body).then(function () {
@@ -86,6 +77,7 @@ exports.update = function (req, res) {
     }).catch(function (e) {
         res.send(e)
     })
+
 }
 
 
@@ -94,24 +86,6 @@ exports.logout = (req, res) => {
     req.user.deleteToken(req.token, (err, user) => {
         if (err) return res.status(400).send(err);
         res.sendStatus(200)
-    })
-}
-
-exports.updates = function (req, res) {
-
-    req.files.map(function (img) {
-        var images = img.filename
-
-        Users.findByIdAndUpdate(req.params.id, { 'file': images }, { upsert: true }, (err, docs) => {
-            if (err) {
-                return res
-                    .status(500)
-                    .send({ error: "unsuccessful" })
-            } else {
-                console.log(images)
-                res.send("Profile Picture Update successfull !" + docs)
-            }
-        })
     })
 }
 

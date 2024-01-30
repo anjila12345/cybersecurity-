@@ -1,15 +1,21 @@
 const Scores = require("../models/board")
 
-exports.addscore= async (req, res) => {
-  try {
-    const { userId, score } = req.body;
-    const newScore = new Scores({ user: userId, score });
-    await newScore.save();
-    res.status(201).json({ message: 'Score saved successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
+exports.addscore = (req, res) => {
+  console.log(req.body.user_id)
+  const scores = new Scores(
+      req.body)
+  scores.save().then(function () {
+      res.send("score has been added")
+  }).catch(function (e) {
+      res.send(e)
+  })
 }
 
-
+exports.getleaderboard = async (req, res) => {
+    try {
+        const findAllfeedback = await Scores.find().populate('user_id');
+        res.send(findAllfeedback);
+    } catch (e) {
+        res.status(500).send(e);
+    }
+};

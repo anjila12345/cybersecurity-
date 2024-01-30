@@ -16,6 +16,7 @@ class Login extends React.Component {
             passworderror: ''
         }
     }
+
     handleChange = (e) => {
         this.setState(
             { [e.target.name]: e.target.value }
@@ -30,11 +31,14 @@ class Login extends React.Component {
 
         };
 
-        //  const emailPattern = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
-        // if (!usernamePattern.test(this.state.username)) {
-        //     isError = true;
-        //     errors.usernameerror = "Enter valid Email Address";
-        // }
+    
+        
+        
+        if (this.state.username === '') {
+            isError = true;
+            errors.usernameerror = "Please provide username";
+          }
+      
         if (this.state.password.length < 8) {
             isError = true;
             errors.passworderror = "Password must be atleast 8 character";
@@ -66,9 +70,9 @@ class Login extends React.Component {
     render() {
         // alert(localStorage.getItem('user_type'))
         if (this.state.isLoggedIn === true && localStorage.getItem('role') == "User") {
-            return <Redirect to='/index' />
-        } if (this.state.isLoggedIn === true && localStorage.getItem('role') == "Admin") {
-            return <Redirect to='/AdminDashboard' />
+            return <Redirect to='/service' />
+        } if (this.state.isLoggedIn === true && localStorage.getItem('role') == "admin") {
+            return <Redirect to='/addadmin' />
         }
       
         return (

@@ -1,6 +1,5 @@
 /* WordFindGame.css */
-
-body {
+.gameboard {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
@@ -8,8 +7,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+
 }
+
 
 .word-find-game {
   display: flex;
@@ -21,13 +21,13 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
+.left-column h1 {
   font-size: 28px;
   margin-bottom: 20px;
   color: #333;
 }
 
-ul {
+.left-column ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -36,7 +36,7 @@ ul {
   justify-content: center;
 }
 
-ul li {
+.left-column ul li {
   font-size: 18px;
   margin: 5px;
   padding: 10px;
@@ -47,11 +47,11 @@ ul li {
   cursor: pointer;
 }
 
-ul li:hover {
+.left-column ul li:hover {
   background-color: #ffd700;
 }
 
-ul li.discovered {
+.left-column ul li.discovered {
   background-color: #e5a200;
 }
 
@@ -61,7 +61,7 @@ ul li.discovered {
   color: #333;
 }
 
-.score {
+.left-column .score {
   font-size: 18px;
   margin-top: 10px;
   color: #333;

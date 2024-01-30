@@ -3,12 +3,12 @@ const jwt = require('jsonwebtoken');
 
 var Schema = mongoose.Schema;
 const scoreSchema = new Schema({
-  userId: {
+  user_id: {
     type: mongoose.Schema.ObjectId,
     ref: 'users',
     trim: true
 },
-    score: {
+  score: {
         type: Number,
         required: true,
       }

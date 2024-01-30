@@ -33,10 +33,7 @@ const userSchema = new Schema({
         type: String,
         default: 'User'
     },
-    wishlist:[{
-        type: Schema.Types.ObjectId,
-        ref: 'postdetail'
-    }],
+ 
     tokens: [{
         token: {
             type: String,
