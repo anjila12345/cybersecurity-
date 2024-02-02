@@ -2,7 +2,10 @@ import axios from 'axios'
 import React from 'react'
 
 class UserDetail extends React.Component {
-
+  DeleteUser = () => {
+    axios.delete('http://localhost:3000/del/' + this.props.hid)
+    window.location.reload();
+  }
 
   render() {
     return (
@@ -17,7 +20,7 @@ class UserDetail extends React.Component {
           <td>{this.props.role}</td>
           <td>{this.props.email}</td>
           <td>
-            <button type="button" className="btn btn-primary" > <i className="fa fa-trash" ></i> Delete </button>
+            <button type="button" className="btn btn-primary" onClick={this.DeleteUser} > <i className="fa fa-trash" ></i> Delete </button>
           </td>
         </tr>
 

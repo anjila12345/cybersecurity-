@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/cyber', {
+mongoose.connect('mongodb+srv://anjilasubedi95:Account7878@cluster0.0c6dr3d.mongodb.net/cybersecurity', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
